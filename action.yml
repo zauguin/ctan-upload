@@ -1,0 +1,78 @@
+name: CTAN upload
+description: Upload TeX package to CTAN
+author: Marcel Krüger
+
+branding:
+  icon: upload
+  color: blue
+
+inputs:
+  repo-token:
+    description: A GitHub access token with access to the repo
+    required: true
+  package-name:
+    description:
+    required: true
+  filename:
+    description:
+    required: true
+  version:
+    description:
+    required: true
+  author:
+    description:
+    required: true
+  email:
+    description:
+    required: true
+  uploader:
+    description:
+    required: true
+  ctan-path:
+    description:
+    required: true
+  license:
+    description:
+    required: false
+  home:
+    description:
+    required: false
+  bugtracker:
+    description:
+    required: false
+  support:
+    description:
+    required: false
+  repository:
+    description:
+    required: false
+  development:
+    description:
+    required: false
+  update:
+    description:
+    required: true
+    default: "false"
+  topic:
+    description:
+    required: false
+  announcement:
+    description:
+    required: false
+  summary:
+    description:
+    required: true
+  description:
+    description:
+    required: false
+  note:
+    description:
+    required: false
+  dry-run:
+    description:
+    required: true
+    default: "false"
+
+runs:
+  using: node20
+  main: dist/index.js
