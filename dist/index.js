@@ -29242,7 +29242,7 @@ async function run() {
             core.setFailed('Validation failed');
             return;
         }
-        core.info(`Validation result: ${validationResponse.text()}`);
+        core.info(`Validation result: ${await validationResponse.text()}`);
         if (!dryRun) {
             const uploadResponse = await executeUpload(formData);
             if (!uploadResponse.ok) {
@@ -29250,7 +29250,7 @@ async function run() {
                 core.setFailed('Upload failed');
                 return;
             }
-            core.info(`Upload result: ${uploadResponse.text()}`);
+            core.info(`Upload result: ${await uploadResponse.text()}`);
         }
     }
     catch (error) {

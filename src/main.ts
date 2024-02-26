@@ -206,7 +206,7 @@ export async function run(): Promise<void> {
       core.setFailed('Validation failed')
       return
     }
-    core.info(`Validation result: ${validationResponse.text()}`)
+    core.info(`Validation result: ${await validationResponse.text()}`)
 
     if (!dryRun) {
       const uploadResponse = await executeUpload(formData)
@@ -217,7 +217,7 @@ export async function run(): Promise<void> {
         core.setFailed('Upload failed')
         return
       }
-      core.info(`Upload result: ${uploadResponse.text()}`)
+      core.info(`Upload result: ${await uploadResponse.text()}`)
     }
   } catch (error) {
     // Fail the workflow run if an error occurs
