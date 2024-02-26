@@ -112,7 +112,7 @@ async function validateUpload(formData: FormData): Promise<Response> {
 }
 
 async function executeUpload(formData: FormData): Promise<Response> {
-  return await fetch('https://www.ctan.org/submit', {
+  return await fetch('https://www.ctan.org/submit/upload', {
     method: 'POST',
     body: formData
   })

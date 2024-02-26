@@ -29161,7 +29161,7 @@ async function validateUpload(formData) {
     });
 }
 async function executeUpload(formData) {
-    return await fetch('https://www.ctan.org/submit', {
+    return await fetch('https://www.ctan.org/submit/upload', {
         method: 'POST',
         body: formData
     });
