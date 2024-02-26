@@ -9,7 +9,7 @@ branding:
 inputs:
   repo-token:
     description: A GitHub access token with access to the repo
-    required: true
+    default: ${{ github.token }}
   package-name:
     description:
     required: true

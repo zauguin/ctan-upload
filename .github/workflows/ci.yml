@@ -55,7 +55,6 @@ jobs:
         id: test-action
         uses: ./
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
           package-name: intopdf
           filename: example/intopdf.tar.gz
           version: v0.4.0
