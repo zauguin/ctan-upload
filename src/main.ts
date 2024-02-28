@@ -140,6 +140,19 @@ async function addRepoData(
   }
 }
 
+async function inlineOrFilecontent(
+  inline: string | undefined,
+  filename: string | undefined
+): Promise<string | undefined> {
+  if (inline !== undefined || filename === undefined) {
+    return inline
+  }
+  const file = await fs.open(filename, 'r')
+  const content = await file.readFile({ encoding: 'utf8' })
+  await file.close()
+  return content
+}
+
 export async function run(): Promise<void> {
   try {
     const token = getMandatoryInput('repo-token')
@@ -160,12 +173,18 @@ export async function run(): Promise<void> {
     const development = getInputs('development')
     const update = core.getBooleanInput('update')
     const topic = getInputs('topic')
-    const announcement = getOptionalInput('announcement')
+    const announcementInline = getOptionalInput('announcement')
+    const announcementFilename = getOptionalInput('announcement-filename')
     const summary = getMandatoryInput('summary')
     const description = getOptionalInput('description')
     const note = getOptionalInput('note')
 
     const dryRun = core.getBooleanInput('dry-run')
+
+    const announcement = await inlineOrFilecontent(
+      announcementInline,
+      announcementFilename
+    )
 
     const uploadData = {
       pkg: packageName,

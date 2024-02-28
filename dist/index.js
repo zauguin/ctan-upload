@@ -29182,6 +29182,15 @@ async function addRepoData(uploadData, octokit) {
         repository
     };
 }
+async function inlineOrFilecontent(inline, filename) {
+    if (inline !== undefined || filename === undefined) {
+        return inline;
+    }
+    const file = await fs.open(filename, 'r');
+    const content = await file.readFile({ encoding: 'utf8' });
+    await file.close();
+    return content;
+}
 async function run() {
     try {
         const token = getMandatoryInput('repo-token');
@@ -29201,11 +29210,13 @@ async function run() {
         const development = getInputs('development');
         const update = core.getBooleanInput('update');
         const topic = getInputs('topic');
-        const announcement = getOptionalInput('announcement');
+        const announcementInline = getOptionalInput('announcement');
+        const announcementFilename = getOptionalInput('announcement-filename');
         const summary = getMandatoryInput('summary');
         const description = getOptionalInput('description');
         const note = getOptionalInput('note');
         const dryRun = core.getBooleanInput('dry-run');
+        const announcement = await inlineOrFilecontent(announcementInline, announcementFilename);
         const uploadData = {
             pkg: packageName,
             version: packageVersion,

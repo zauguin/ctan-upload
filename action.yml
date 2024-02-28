@@ -57,7 +57,10 @@ inputs:
     description:
     required: false
   announcement:
-    description:
+    description: An inline announcement to be sent out after the release is installed in CTAN. This overrides announcement-filename.
+    required: false
+  announcement-filename:
+    description: A filename of an announcement file to be sent out after the release is installed in CTAN. Ignored if announcement is set.
     required: false
   summary:
     description:
