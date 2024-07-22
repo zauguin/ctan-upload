@@ -29083,7 +29083,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = void 0;
+exports.run = run;
 const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 const fs = __importStar(__nccwpck_require__(3977));
@@ -29270,7 +29270,6 @@ async function run() {
             core.setFailed(error.toString());
     }
 }
-exports.run = run;
 
 
 /***/ }),
