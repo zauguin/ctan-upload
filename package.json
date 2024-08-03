@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.1.0",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
     "@vercel/ncc": "^0.38.1",
@@ -84,7 +84,7 @@
     "make-coverage-badge": "^1.2.0",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
-    "ts-jest": "^29.2.3",
-    "typescript": "^5.5.3"
+    "ts-jest": "^29.2.4",
+    "typescript": "^5.5.4"
   }
 }
